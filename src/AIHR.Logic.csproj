@@ -6,7 +6,4 @@
         <Nullable>enable</Nullable>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     </PropertyGroup>
-    <ItemGroup>
-      <Folder Include="Models\CelestialBodies\Planets" />
-    </ItemGroup>
 </Project>

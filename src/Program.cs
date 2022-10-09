@@ -12,4 +12,4 @@ celestialBodiesAroundSun.ForEach(celestialBody =>
     Console.WriteLine(celestialBody);
 });
 
-Console.ReadKey();
+Console.Read();

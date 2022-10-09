@@ -9,7 +9,7 @@ public static class CelestialBodyExtensions
     {
         if (celestialBody is ICanBeTerraformed and ICanSustainLife)
         {
-            Console.WriteLine($"COLONIZING {celestialBody.Name} ...");
+            Console.WriteLine($"{celestialBody.Name} CAN BE COLONIZED");
         }
     }
 }

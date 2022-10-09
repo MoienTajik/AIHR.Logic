@@ -1,3 +1,6 @@
+using System.Text;
+using AIHR.Logic.Models.CelestialBodies.Stars;
+
 namespace AIHR.Logic.Models.CelestialBodies;
 
 public abstract class CelestialBody
@@ -7,31 +10,42 @@ public abstract class CelestialBody
     public abstract byte[] Picture { get; }
 
     /// <summary>
-    /// Distance from Sun in Kilometers.
-    /// </summary>
-    public abstract double DistanceFromSun { get; }
-
-    /// <summary>
-    /// Orbital period in Days.
-    /// </summary>
-    public abstract double OrbitalPeriod { get; }
-
-    /// <summary>
     /// Mass in Kilograms.
     /// </summary>
     public abstract double Mass { get; }
 
     public override string ToString()
     {
-        // Using StringBuilder is better to reduce string allocation
         const string separator = "============================================================================================";
-        var distanceFromSunKm = $"{DistanceFromSun} KM";
-        var orbitalPeriodDays = $"{OrbitalPeriod} Days";
-        var massKg = $"{Mass} KG";
+
+        var sb = new StringBuilder();
+        if (this is IOrbitAround orbitingBody)
+        {
+            var primaryBody = orbitingBody
+                .GetType()
+                .FindInterfaces((type, _) => type.IsGenericType, null)
+                .First().GenericTypeArguments[0].Name;
+            
+            var distanceFromPrimaryBody = $"{orbitingBody.DistanceFromPrimaryBody} KM";
+            var orbitalPeriodDays = $"{orbitingBody.OrbitalPeriod.TotalDays} Days and {orbitingBody.OrbitalPeriod.Hours} Hours";
+            sb.Append($"{Name.ToUpperInvariant()} => Distance from {primaryBody.ToUpperInvariant()}: {distanceFromPrimaryBody}, ");
+            sb.Append($"Orbits around {primaryBody} every: {orbitalPeriodDays}, {nameof(Mass)}: {Mass} KG");
+            
+            if (this is IHasSatelliteMoon bodyWithSatellite)
+            {
+                sb.AppendLine();
+                sb.AppendLine();
+                sb.AppendLine("SATELLITE MOONS:");
+                bodyWithSatellite.Satellites.ForEach(satellite => sb.AppendLine(satellite.ToString()));
+            }
+            
+            if(this is IOrbitAround<Sun>)
+            {
+                sb.AppendLine();
+                sb.AppendLine(separator);
+            }
+        }
         
-        return $"{Name.ToUpperInvariant()} => {nameof(DistanceFromSun)}: {distanceFromSunKm}, " +
-               $"{nameof(OrbitalPeriod)}: {orbitalPeriodDays}, {nameof(Mass)}: {massKg}" +
-               Environment.NewLine +
-               separator;
+        return sb.ToString();
     }
 }

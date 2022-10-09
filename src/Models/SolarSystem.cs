@@ -11,10 +11,10 @@ public abstract class SolarSystem
             .GetTypes()
             .Where(type => type.IsClass &&
                            !type.IsAbstract &&
-                           type.IsSubclassOf(typeof(Planet)) || 
-                           type.IsSubclassOf(typeof(DwarfPlanet)))
-            .Select(type => (CelestialBody)Activator.CreateInstance(type)!)
+                           type.IsAssignableTo(typeof(IOrbitAround<Sun>)))
+            .Select(type => (IOrbitAround<Sun>)Activator.CreateInstance(type)!)
             .OrderBy(celestialBody => celestialBody.OrbitalPeriod)
+            .Cast<CelestialBody>()
             .ToList();
     }
 
@@ -29,6 +29,10 @@ public abstract class SolarSystem
     }
 
     public abstract class DwarfPlanet : CelestialBody
+    {
+    }
+
+    public abstract class Satellite : CelestialBody
     {
     }
 
