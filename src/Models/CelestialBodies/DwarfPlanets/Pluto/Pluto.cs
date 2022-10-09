@@ -3,7 +3,7 @@ using AIHR.Logic.Models.CelestialBodies.Stars;
 
 namespace AIHR.Logic.Models.CelestialBodies.DwarfPlanets.Pluto;
 
-public sealed class Pluto : SolarSystem.DwarfPlanet, IHasSatelliteMoon, IOrbitAround<Sun>
+public sealed class Pluto : SolarSystem.DwarfPlanet, IHaveSatelliteMoons, IOrbitAround<Sun>
 {
     public override string Name => nameof(Pluto);
 

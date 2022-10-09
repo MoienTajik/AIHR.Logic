@@ -3,7 +3,7 @@ using AIHR.Logic.Models.CelestialBodies.Stars;
 
 namespace AIHR.Logic.Models.CelestialBodies.Planets.IceGiants.Uranus;
 
-public sealed class Uranus : SolarSystem.IceGiant, IHasSatelliteMoon, IOrbitAround<Sun>
+public sealed class Uranus : SolarSystem.IceGiant, IHaveSatelliteMoons, IOrbitAround<Sun>
 {
     public override string Name => nameof(Uranus);
 

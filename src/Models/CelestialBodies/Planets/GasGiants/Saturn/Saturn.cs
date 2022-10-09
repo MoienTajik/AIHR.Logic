@@ -3,7 +3,7 @@ using AIHR.Logic.Models.CelestialBodies.Stars;
 
 namespace AIHR.Logic.Models.CelestialBodies.Planets.GasGiants.Saturn;
 
-public sealed class Saturn : SolarSystem.GasGiant, IHasSatelliteMoon, IOrbitAround<Sun>
+public sealed class Saturn : SolarSystem.GasGiant, IHaveSatelliteMoons, IOrbitAround<Sun>
 {
     public override string Name => nameof(Saturn);
 

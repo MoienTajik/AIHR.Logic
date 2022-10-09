@@ -3,7 +3,7 @@ using AIHR.Logic.Models.CelestialBodies.Stars;
 
 namespace AIHR.Logic.Models.CelestialBodies.Planets.TerrestrialPlanets.Mars;
 
-public sealed class Mars : SolarSystem.TerrestrialPlanet, IHasSatelliteMoon, ICanBeTerraformed, ICanSustainLife, IOrbitAround<Sun>
+public sealed class Mars : SolarSystem.TerrestrialPlanet, IHaveSatelliteMoons, ICanBeTerraformed, ICanSustainLife, IOrbitAround<Sun>
 {
     public override string Name => nameof(Mars);
 

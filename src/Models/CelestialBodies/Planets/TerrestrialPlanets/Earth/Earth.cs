@@ -3,7 +3,7 @@ using AIHR.Logic.Models.CelestialBodies.Stars;
 
 namespace AIHR.Logic.Models.CelestialBodies.Planets.TerrestrialPlanets.Earth;
 
-public sealed class Earth : SolarSystem.TerrestrialPlanet, IHasSatelliteMoon, ICanSustainLife, IOrbitAround<Sun>
+public sealed class Earth : SolarSystem.TerrestrialPlanet, IHaveSatelliteMoons, ICanSustainLife, IOrbitAround<Sun>
 {
     public override string Name => nameof(Earth);
 

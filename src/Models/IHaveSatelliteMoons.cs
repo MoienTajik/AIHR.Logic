@@ -1,6 +1,6 @@
 namespace AIHR.Logic.Models;
 
-public interface IHasSatelliteMoon
+public interface IHaveSatelliteMoons
 {
     public List<SolarSystem.Satellite> Satellites { get; }
 }

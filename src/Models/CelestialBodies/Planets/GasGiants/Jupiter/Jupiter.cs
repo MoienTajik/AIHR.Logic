@@ -3,7 +3,7 @@ using AIHR.Logic.Models.CelestialBodies.Stars;
 
 namespace AIHR.Logic.Models.CelestialBodies.Planets.GasGiants.Jupiter;
 
-public sealed class Jupiter : SolarSystem.GasGiant, IHasSatelliteMoon, IOrbitAround<Sun>
+public sealed class Jupiter : SolarSystem.GasGiant, IHaveSatelliteMoons, IOrbitAround<Sun>
 {
     public override string Name => nameof(Jupiter);
 

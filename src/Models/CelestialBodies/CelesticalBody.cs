@@ -31,7 +31,7 @@ public abstract class CelestialBody
             sb.Append($"{Name.ToUpperInvariant()} => Distance from {primaryBody.ToUpperInvariant()}: {distanceFromPrimaryBody}, ");
             sb.Append($"Orbits around {primaryBody} every: {orbitalPeriodDays}, {nameof(Mass)}: {Mass} KG");
             
-            if (this is IHasSatelliteMoon bodyWithSatellite)
+            if (this is IHaveSatelliteMoons bodyWithSatellite)
             {
                 sb.AppendLine();
                 sb.AppendLine();

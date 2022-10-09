@@ -3,7 +3,7 @@ using AIHR.Logic.Models.CelestialBodies.Stars;
 
 namespace AIHR.Logic.Models.CelestialBodies.Planets.IceGiants.Neptune;
 
-public sealed class Neptune : SolarSystem.IceGiant, IHasSatelliteMoon, IOrbitAround<Sun>
+public sealed class Neptune : SolarSystem.IceGiant, IHaveSatelliteMoons, IOrbitAround<Sun>
 {
     public override string Name => nameof(Neptune);
 
