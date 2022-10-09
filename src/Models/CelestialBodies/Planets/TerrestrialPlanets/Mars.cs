@@ -1,6 +1,6 @@
 namespace AIHR.Logic.Models.CelestialBodies.Planets.TerrestrialPlanets;
 
-public sealed class Mars : SolarSystem.TerrestrialPlanet, IHasSatelliteMoon, ICanBeTerraformed
+public sealed class Mars : SolarSystem.TerrestrialPlanet, IHasSatelliteMoon, ICanBeTerraformed, ICanSustainLife
 {
     public override string Name => "Mars";
 

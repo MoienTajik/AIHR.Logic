@@ -6,10 +6,19 @@ public abstract class CelestialBody
 
     public abstract byte[] Picture { get; }
 
+    /// <summary>
+    /// Distance from Sun in Kilometers.
+    /// </summary>
     public abstract double DistanceFromSun { get; }
 
+    /// <summary>
+    /// Orbital period in Days.
+    /// </summary>
     public abstract double OrbitalPeriod { get; }
 
+    /// <summary>
+    /// Mass in Kilograms.
+    /// </summary>
     public abstract double Mass { get; }
 
     public override string ToString()

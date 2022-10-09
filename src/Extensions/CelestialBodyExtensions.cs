@@ -7,7 +7,7 @@ public static class CelestialBodyExtensions
 {
     public static void Colonize(this CelestialBody celestialBody)
     {
-        if (celestialBody is ICanBeTerraformed)
+        if (celestialBody is ICanBeTerraformed and ICanSustainLife)
         {
             Console.WriteLine($"COLONIZING {celestialBody.Name} ...");
         }
